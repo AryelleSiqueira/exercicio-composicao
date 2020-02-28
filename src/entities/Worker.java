@@ -11,10 +11,9 @@ public class Worker {
 	private WorkerLevel level;
 	private Double baseSalary;
 	private Department department;
-	private List<HourContract> contracts; 
+	private List<HourContract> contracts = new ArrayList<>();
 	
 	public Worker() {
-		contracts = new ArrayList<>();
 	}
 	
 	public Worker(String name, WorkerLevel level, Double baseSalary, Department department) {
@@ -22,7 +21,6 @@ public class Worker {
 		this.level = level;
 		this.baseSalary = baseSalary;
 		this.department = department;
-		contracts = new ArrayList<>();
 	}
 
 	public String getName() {
@@ -79,7 +77,7 @@ public class Worker {
 
 	@Override
 	public String toString() {
-		return "Name: " 
+		return "Name: "
 				+ name
 				+"\nDepartment: "
 				+ department.getName();
