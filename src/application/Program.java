@@ -35,25 +35,23 @@ public class Program {
 		
 		System.out.print("How many contracts to this worker? ");
 		int n = sc.nextInt();
-		sc.nextLine();
 		
 		for (int i = 1; i <= n; i++) {
 			System.out.println("Enter contract #" + i + " data:");
 			System.out.print("Date (DD/MM/YYYY): ");
-			Date date = sdf1.parse(sc.nextLine());
+			Date date = sdf1.parse(sc.next());
 			System.out.print("Value per hour: ");
 			double valueHour = sc.nextDouble();
 			System.out.print("Duration (hours): ");
 			int hours = sc.nextInt();
-			sc.nextLine();
-			
+						
 			worker.addContract(new HourContract(date, valueHour, hours));
 		}
 		System.out.println();
 		
 		SimpleDateFormat sdf2 = new SimpleDateFormat("MM/yyyy");
 		System.out.print("Enter month and year to calculate income (MM/YYYY): ");
-		Date date = sdf2.parse(sc.nextLine());
+		Date date = sdf2.parse(sc.next());
 		Calendar c = Calendar.getInstance();
 		c.setTime(date);
 		
@@ -61,6 +59,9 @@ public class Program {
 		double income = worker.income(c.get(Calendar.YEAR), c.get(Calendar.MONTH)+1);
 		System.out.println("Income for " + sdf2.format(date) + ": " 
 							+ String.format("%.2f", income));
+		
+		
+		sc.close();
 
 	}
 }
